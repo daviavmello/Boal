@@ -5,7 +5,7 @@ const Home = ({ soccerData }) => {
     <div className="container mx-auto justify-center flex text-gray-700">
       <div className="rounded-lg shadow-light p-2 my-6">
         <table className="table-auto">
-          {/* <tr className="text-right border-b border-gray-100">
+          <tr className="text-right border-b border-gray-100">
           <th className="text-lg pb-2">Tabela</th>
           <th />
           <th />
@@ -15,8 +15,8 @@ const Home = ({ soccerData }) => {
           <th />
           <th />
           <th />
-        </tr> */}
-          {/* <tr className="uppercase font-semibold text-sm text-gray-300">
+        </tr>
+        <tr className="uppercase font-semibold text-sm text-gray-300">
           <th className="px-5 py-3">Pos</th>
           <th className="px-5 py-3 text-left">Time</th>
           <th className="px-5 py-3">Pts</th>
@@ -26,7 +26,7 @@ const Home = ({ soccerData }) => {
           <th className="px-5 py-3">D</th>
           <th className="px-5 py-3">SG</th>
           <th className="px-5 py-3">Últ. Jogos</th>
-        </tr> */}
+        </tr>
           <tbody>
             {soccerData.map((team, key) => (
               <tr>
@@ -85,23 +85,25 @@ export async function getStaticProps() {
   let error = "";
   let soccerData = [];
   try {
-    const res = await fetch(`${server}/api/hello`, {
-      method: "GET",
-      headers: {
-        // update with user-agent
-        "User-Agent":
-          "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36",
-        Accept: "application/json; charset=UTF-8",
-      },
-    });
-    soccerData = await res.json();
-  } catch (e) {
+    const res = await fetch(`${server}/api/hello`, 
+    // {
+      // method: "GET",
+      // headers: {
+      //   // update with user-agent
+      //   "User-Agent":
+      //     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36",
+      //   Accept: "application/json; charset=UTF-8",
+      // },
+    );
+    soccerData = await res.json()
+  } 
+  catch (e) {
     error = e.toString();
   }
   return {
     props: {
       soccerData,
-      error,
+      // error,
     },
   };
 }
