@@ -1,6 +1,6 @@
 const cheerio = require("cheerio");
 
-export default async (req, res) => {
+export default async function soccerApi(req, res) {
   try {
     res.statusCode = 200;
     console.log(res.statusCode);
