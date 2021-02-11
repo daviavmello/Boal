@@ -56,10 +56,9 @@ const Home = ({ soccerData }) => {
   );
 };
 
-
-import { soccerApi } from "./api/hello"
+import { server } from '../config';
 export async function getStaticProps() {
-  const res = await fetch("daviavmello.daviavmello.now.sh/api/hello");
+  const res = await fetch(`${server}/api/hello`);
   const soccerData = await res.json();
 
   return {
