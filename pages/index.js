@@ -2,7 +2,7 @@ const Home = ({ soccerData }) => {
   // console.log(soccerData);
 
   return (
-    <div className="container mx-auto flex text-gray-700">
+    <div className="container mx-auto justify-center flex text-gray-700">
       <div className="rounded-lg shadow-light p-2 my-6">
         <table className="table-auto">
         {/* <tr className="text-right border-b border-gray-100">
