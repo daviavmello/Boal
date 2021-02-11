@@ -59,7 +59,7 @@ const Home = ({ soccerData }) => {
 
 import { soccerApi } from "./api/hello"
 export async function getStaticProps() {
-  const res = await fetch("http://localhost:3000/api/hello");
+  const res = await fetch("daviavmello.daviavmello.now.sh/api/hello");
   const soccerData = await res.json();
 
   return {
