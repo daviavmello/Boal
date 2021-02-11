@@ -5,7 +5,15 @@ export default async function soccerApi(req, res) {
     res.statusCode = 200;
     console.log(res.statusCode);
     const response = await fetch(
-      "https://www.cbf.com.br/futebol-brasileiro/competicoes/campeonato-brasileiro-serie-a"
+      "https://www.cbf.com.br/futebol-brasileiro/competicoes/campeonato-brasileiro-serie-a", {
+        method: "GET",
+        headers: {
+          // update with user-agent
+          "User-Agent":
+            "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36",
+          Accept: "application/json; charset=UTF-8",
+        },
+      }
     );
     const htmlString = await response.text();
     const $ = cheerio.load(htmlString);
@@ -43,9 +51,9 @@ export default async function soccerApi(req, res) {
     // console.log(jsonArray);
     return res.json(jsonArray);
   } catch (e) {
-    res.statusCode = 404;
-    return res.json({
-      Error: "Ei Boal! Informação não encontrada.",
-    });
+    console.error("Error:", err);
+        console.error("Response body:", body);
+        // throw err;
+        return ReE(response, err.message, 500)
   }
 };

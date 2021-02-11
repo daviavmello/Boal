@@ -85,26 +85,23 @@ export async function getStaticProps() {
   let error = "";
   let soccerData = [];
   try {
-    const res = await fetch(
-      `${server}/api/hello`,
-      {
-        method: "GET",
-        headers: {
-          // update with your user-agent
-          "User-Agent":
-            "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36", 
-          Accept: "application/json; charset=UTF-8",
-        },
-      }  
-    )
+    const res = await fetch(`${server}/api/hello`, {
+      method: "GET",
+      headers: {
+        // update with user-agent
+        "User-Agent":
+          "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36",
+        Accept: "application/json; charset=UTF-8",
+      },
+    });
     soccerData = await res.json();
-    } catch (e) {
+  } catch (e) {
     error = e.toString();
   }
   return {
     props: {
       soccerData,
-      error
+      error,
     },
   };
 }
