@@ -1,4 +1,7 @@
+// import useSoccerData from '../hooks/soccerHook'
+
 const Home = ({ soccerData }) => {
+  // const [soccerData] = useSoccerData();
   return (
     <div className="container my-0 mx-auto flex text-gray-700">
       <div className="rounded-lg shadow-light p-2 my-6">
